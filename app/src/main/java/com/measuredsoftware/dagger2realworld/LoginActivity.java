@@ -6,7 +6,12 @@ import android.os.Bundle;
 import android.os.SystemClock;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.TextView;
 
+import com.measuredsoftware.dagger2realworld.di.ApplicationComponent;
+import com.measuredsoftware.dagger2realworld.di.login.DaggerLogInComponent;
+import com.measuredsoftware.dagger2realworld.di.login.LogInModule;
+import com.measuredsoftware.dagger2realworld.model.LoginBehaviour;
 import com.measuredsoftware.dagger2realworld.model.User;
 import com.measuredsoftware.dagger2realworld.model.UserSession;
 
@@ -24,18 +29,22 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     @Inject
     SharedPreferences sharedPreferences;
 
+    @Inject
+    LoginBehaviour loginBehaviour;
+
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        ((RealWorldApplication)getApplication()).applicationLevelComponent().inject(this);
-
-        if (sharedPreferences == null) {
-            throw new IllegalStateException(SharedPreferences.class.getSimpleName() + " instance should not be null in " + LoginActivity.class.getSimpleName() + " as it should be injected from the application");
-        }
+        final ApplicationComponent applicationComponent = ((RealWorldApplication) getApplication()).applicationComponent();
+        DaggerLogInComponent.builder().applicationComponent(applicationComponent)
+                .logInModule(new LogInModule("Production URL"))
+                .build()
+                .inject(this);
 
         setContentView(R.layout.activity_login);
 
+        ((TextView) findViewById(R.id.url)).setText(loginBehaviour.getLogInUrl());
         findViewById(R.id.login).setOnClickListener(this);
     }
 

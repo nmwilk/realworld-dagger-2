@@ -19,7 +19,7 @@ public class LaunchActivity extends AppCompatActivity {
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        ((RealWorldApplication)getApplication()).applicationLevelComponent().inject(this);
+        ((RealWorldApplication)getApplication()).applicationComponent().inject(this);
 
         setContentView(R.layout.activity_launch);
 

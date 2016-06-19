@@ -1,4 +1,4 @@
-package com.measuredsoftware.dagger2realworld.di;
+package com.measuredsoftware.dagger2realworld.di.session;
 
 import android.content.SharedPreferences;
 

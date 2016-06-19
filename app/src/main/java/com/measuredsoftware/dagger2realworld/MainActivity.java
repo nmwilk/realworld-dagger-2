@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        ((RealWorldApplication)getApplication()).applicationLevelComponent().inject(this);
+        ((RealWorldApplication)getApplication()).applicationComponent().inject(this);
 
         setContentView(R.layout.activity_logout);
 

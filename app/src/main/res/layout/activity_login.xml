@@ -3,6 +3,12 @@
               android:layout_width="match_parent"
               android:layout_height="match_parent">
 
+    <TextView
+        android:gravity="center_horizontal"
+        android:id="@+id/url"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
     <Button
         android:id="@+id/login"
         android:text="Login"
