@@ -1,5 +1,7 @@
 # realworld-dagger-2
 
+Common app structure where a log in is required, shown using Dagger 2 for Activity-level dependency injection.
+
 Skeleton of an app that requires log in. Once logged in the user id is shown on a log out page. The logged in user is persisted in the app's SharedPreferences, so that next time the app is launched the log in screen will be skipped if a user is logged in.
 
 At application start up time a SharedPreferences and UserSession are created. The initial activity (LaunchActivity) immediately shows a log in or log out screen. 
