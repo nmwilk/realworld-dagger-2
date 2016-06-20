@@ -1,6 +1,7 @@
 package com.measuredsoftware.dagger2realworld.di.session;
 
 import android.content.SharedPreferences;
+import android.util.Log;
 
 import com.measuredsoftware.dagger2realworld.model.User;
 import com.measuredsoftware.dagger2realworld.model.UserSession;
@@ -16,8 +17,9 @@ import dagger.Provides;
 @Module
 public class SessionModule {
     @Provides
-    @Singleton
+    @Session
     UserSession userSession(SharedPreferences sharedPreferences) {
+        Log.i("instances", "creating userSession");
         return new UserSession(sharedPreferences);
     }
 

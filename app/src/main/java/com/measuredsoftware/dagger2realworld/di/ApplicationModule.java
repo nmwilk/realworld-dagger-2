@@ -2,6 +2,7 @@ package com.measuredsoftware.dagger2realworld.di;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.util.Log;
 
 import javax.inject.Singleton;
 
@@ -22,6 +23,7 @@ public class ApplicationModule {
     @Provides
     @Singleton
     SharedPreferences sharedPreferences() {
+        Log.i("instances", "creating sharedPreferences");
         return context.getSharedPreferences("prefs", Context.MODE_PRIVATE);
     }
 }

@@ -1,5 +1,7 @@
 package com.measuredsoftware.dagger2realworld.di.login;
 
+import android.util.Log;
+
 import com.measuredsoftware.dagger2realworld.model.LoginBehaviour;
 
 import dagger.Module;
@@ -20,6 +22,7 @@ public class LogInModule {
     @Login
     @Provides
     LoginBehaviour loginBehaviour() {
+        Log.i("instances", "creating loginBehaviour");
         return new LoginBehaviour(logInUrl);
     }
 }
