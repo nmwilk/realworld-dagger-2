@@ -37,7 +37,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         super.onCreate(savedInstanceState);
 
         final ApplicationComponent applicationComponent = ((RealWorldApplication) getApplication()).applicationComponent();
-        DaggerLogInComponent.builder().applicationComponent(applicationComponent)
+        DaggerLogInComponent.builder()
+                .applicationComponent(applicationComponent)
                 .logInModule(new LogInModule("Production URL"))
                 .build()
                 .inject(this);

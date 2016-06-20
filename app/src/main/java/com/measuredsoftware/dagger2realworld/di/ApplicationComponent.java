@@ -4,7 +4,6 @@ import android.content.SharedPreferences;
 
 import com.measuredsoftware.dagger2realworld.LaunchActivity;
 import com.measuredsoftware.dagger2realworld.MainActivity;
-import com.measuredsoftware.dagger2realworld.RealWorldApplication;
 import com.measuredsoftware.dagger2realworld.di.session.SessionModule;
 import com.measuredsoftware.dagger2realworld.model.UserSession;
 
@@ -21,8 +20,6 @@ public interface ApplicationComponent {
     UserSession userSession();
 
     SharedPreferences sharedPreferences();
-
-    void inject(RealWorldApplication application);
 
     void inject(LaunchActivity launchActivity);
 

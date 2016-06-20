@@ -22,7 +22,6 @@ public class RealWorldApplication extends Application {
                 .applicationModule(new ApplicationModule(this))
                 .sessionModule(new SessionModule())
                 .build();
-        applicationComponent.inject(this);
     }
 
     public ApplicationComponent applicationComponent() {
